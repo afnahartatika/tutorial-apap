@@ -3,6 +3,73 @@
 * **Afnadiati Hartatika** - *1906398931* - *C*
 
 ---
+## Tutorial 2
+### What I have learned today
+
+### Pertanyaan
+1. Cobalah untuk menambahkan sebuah Bioskop dengan mengakses link berikut: http://localhost:8080/bioskop/add?idBioskop=1&namaBioskop=Bioskop%20PAPA%20APAP&alamat=Maung%20Fasilkom&noTelepon=081xxx&jumlahStudio=10 Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi 
+   
+    Jawab: Tidak dapat diakses atau terjadi *Whitelable Error Page*, karena view template yang diimplementasikan yaitu **"add-bioskop"** pada Controller belum dibuat.
+
+
+2. Menurut kamu anotasi @Autowired pada class Controller tersebut merupakan implementasi dari konsep apa? Dan jelaskan secara singkat cara kerja @Autowired tersebut dalam konteks service dan controller yang telah kamu buat
+   
+    Jawab: @Autowired merupakan fitur component-scan yang disediakan oleh Spring Framework. @Autowired bekerja dengan melihat isi package dan mencari class-class yang memiliki anotasi tertentu seperti @Repository, @Service, @Controller, dan @Component. Setelah class-class tersebut ditemukan, lalu dilakukan inject untuk semua dependency tanpa perlu menyediakan setter, getter, dan constuctor. Pada Lab kali ini @Autowired diimplementasikan sebagai Controller.
+
+
+3. Cobalah untuk menambahkan sebuah Bioskop dengan mengakses link berikut: http://localhost:8080/bioskop/add?idBioskop=1&namaBioskop=Bioskop%20PAPA%20APAP&alamat=Maung%20Fasilkom&noTelepon=081xxx Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi.
+   
+   Jawab: Link tersebut tidak dapat bekerja, karena kekurangan parameter yaitu jumlah studio yang wajib diisi belum dimasukkan, sehingga link gagal dieksekusi.
+
+
+4. Jika Papa APAP ingin melihat Bioskop dengan nama Bioskop Maung,
+   link apa yang harus diakses?
+
+   Jawab: Diasumsikan bioskop dengan nama Bioskop Maung memiliki ID = 1, sehingga dapat diakses pada link berikut http://localhost:8080/bioskop/view?idBioskop=1
+
+
+5. Tambahkan 1 contoh Bioskop lainnya sesukamu. Lalu cobalah untuk mengakses http://localhost:8080/bioskop/viewall , apa yang akan ditampilkan? Sertakan juga bukti screenshotmu.
+
+   Jawab:
+   
+   Link untuk penambahan data: http://localhost:8080/bioskop/add?idBioskop=2&namaBioskop=Bioskop%20AKU&alamat=Depok%20Fasilkom&noTelepon=081xxx&jumlahStudio=20
+   ![img.png](img.png)
+   Halaman daftar bioskop
+   ![img_1.png](img_1.png)
+
+### Latihan
+1. Pada BioskopController tambahkan sebuah method view Bioskop dengan menggunakan Path
+   Variable. Misalnya, kamu ingin memasukkan data sebuah Bioskop yang memiliki idBioskop
+   1, untuk melihat data yang baru dimasukkan tersebut, user dapat mengakses halaman
+   http://localhost:8080/bioskop/view/id-bioskop/1.
+   ![img_2.png](img_2.png)
+   
+
+2. Tambahkan fitur untuk melakukan update jumlahStudio Bioskop berdasarkan idBioskop.
+   Misalnya, setelah melakukan add Bioskop pada tahap 1 bab View Template, cobalah untuk
+   mengubah jumlahStudio objek Bioskop tersebut menjadi 999 dengan mengakses halaman
+   http://localhost:8080/bioskop/update/id-bioskop/1/jumlah-studio/999
+   Tampilkan juga sebuah halaman yang memberikan informasi bahwa data tersebut telah
+   berhasil diubah.
+   ![img_3.png](img_3.png)
+   
+
+3. Tambahkan fitur untuk melakukan delete Bioskop berdasarkan idBioskop. Misalnya, setelah
+   melakukan add Bioskop pada tahap 1 bab View Template dan melakukan update seperti pada
+   latihan nomor 2, cobalah untuk melakukan delete data tersebut dengan mengakses halaman
+   http://localhost:8080/bioskop/delete/id-bioskop/1. Tampilkan sebuah halaman yang
+   memberikan informasi bahwa data tersebut telah berhasil dihapus.
+   
+   ![img_4.png](img_4.png)
+
+### What I did not understand
+- [ ] Perbedaan dari masing-masing MVC 
+- [ ] Waktu yang tepat untuk menggunakan MVC
+
+### References:
+- https://software.endy.muhardin.com/java/memahami-dependency-injection/
+
+---
 ## Tutorial 1
 ### What I have learned today
 
