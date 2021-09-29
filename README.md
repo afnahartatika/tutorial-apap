@@ -3,6 +3,62 @@
 * **Afnadiati Hartatika** - *1906398931* - *C*
 
 ---
+## Tutorial 3
+### What I have learned today
+
+### Pertanyaan
+1. Tolong jelaskan secara singkat apa kegunaan dari anotasi-anotasi yang ada pada model
+   (@AllArgsConstructor, @NoArgsConstructor, @Setter, @Getter, @Entity, @Table)
+   - @AllArgsConstructor: membuat constructor dengan menggunakan argumen.
+   - @NoArgsConstructor: membuat constructor tanpa menggunakan argumen.
+   - @Setter: menghasilkan fungsi setter.
+   - @Getter: menghasilkan fungsi getter.
+   - @Entity: mendefinisikan nama entity dari class.
+   - @Table: menetapkan nama tabel SQL.
+   
+
+2. Pada class BioskopDB, terdapat method findByNoBioskop, apakah kegunaan dari method
+   tersebut?
+   Method findByNoBioskop berfungsi sebagai interface yang akan menghubungkan method 
+   implementasinya pada file BioskopServiceImpl dengan database. Method tersebut digunakan
+   untuk mencari semua bioskop berdasarkan nomornya.
+
+
+3. Jelaskan perbedaan kegunaan dari anotasi @JoinTable dan @JoinColumn
+   @JoinTable melakukan penyimpanan id dari kedua entity ke dalam tabel terpisah, 
+   sedangkan @JoinColumn melakukan penyimpanan id entity lain di kolom baru dengan table yang sama.
+
+
+4. Pada class PenjagaModel, digunakan anotasi @JoinColumn pada atribut bioskop, apa
+   kegunaan dari name, referencedColumnName, dan nullable dalam anotasi tersebut? dan apa
+   perbedaan nullable dan penggunaan anotasi @NotNull.
+   - name: nama dari kolom foreign key.
+   - referencedColumnName: nama kolom yang dirujuk oleh foreign key.
+   - nullable: menentukan kondisi apakah kolom foreign dapat tidak memiliki nilai atau tidak.
+   - @NotNull: field yang memiliki karakteristik @NotNull form tidak boleh dikosongkan, tetapi fieldnya bisa kosong. 
+
+
+5. Jelaskan kegunaan FetchType.LAZY, CascadeType.ALL, dan FetchType.EAGER
+   FetchType.LAZY digunakan saat persistence provider runtime harus bekerja dengan cepat, sedangkan FetchType.LAZY
+   digunakan saat persistence yang bekerja tidak memerlukan kerja keras atau dapat diproses perlahan-lahan.
+   Penggunaan CascadeType.ALL berarti bahwa setiap perubahan yang terjadi pada suatu entity akan mempengaruhi 
+   (atau ikut berubah) entity lain yang memiliki relasi dengannya.
+
+
+### What I did not understand
+- [ ] Kapan waktu yang tepat untuk menggunakan repository? 
+- [ ] Perbedaan model dengan DB
+
+### References:
+- http://www.intelligentprogrammer.com/index.php/2021/01/01/how-to-use-lombok-in-spring-boot/
+- https://www.baeldung.com/jpa-entity-table-names
+- https://javakeypoint.wordpress.com/2020/04/21/difference-between-joincolumn-and-jointable-in-hibernate/
+- https://docs.oracle.com/javaee/6/api/javax/persistence/JoinColumn.html
+- https://www.baeldung.com/java-bean-validation-not-null-empty-blank
+- https://atautowired.wordpress.com/2013/05/08/fetchtype-lazy-vs-fetchtype-eager-in-javax-persistance/
+- https://howtodoinjava.com/hibernate/hibernate-jpa-cascade-types/
+
+---
 ## Tutorial 2
 ### What I have learned today
 
