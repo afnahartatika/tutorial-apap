@@ -37,10 +37,14 @@ public class PenjagaController {
             @ModelAttribute PenjagaModel penjaga,
             Model model
     ) {
-        penjagaService.addPenjaga(penjaga);
-        model.addAttribute("noBioskop", penjaga.getBioskop().getNoBioskop());
-        model.addAttribute("namaPenjaga", penjaga.getNamaPenjaga());
-        return "add-penjaga";
+        if (penjagaService.getPenjagaByNamaPenjaga(penjaga.getNamaPenjaga()) == null) {
+            penjagaService.addPenjaga(penjaga);
+            model.addAttribute("noBioskop", penjaga.getBioskop().getNoBioskop());
+            model.addAttribute("namaPenjaga", penjaga.getNamaPenjaga());
+            return "add-penjaga";
+        } else {
+            return "failed-add-penjaga";
+        }
     }
 
     // latihan 2

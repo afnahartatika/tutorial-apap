@@ -50,4 +50,14 @@ public class PenjagaServiceImpl implements PenjagaService {
         }
         return null;
     }
+
+    // challenge
+    @Override
+    public PenjagaModel getPenjagaByNamaPenjaga(String namaPenjaga) {
+        Optional<PenjagaModel> penjaga = penjagaDB.findByNamaPenjaga(namaPenjaga);
+        if (penjaga.isPresent()) {
+            return penjaga.get();
+        }
+        return null;
+    }
 }

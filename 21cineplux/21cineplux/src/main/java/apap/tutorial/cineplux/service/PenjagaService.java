@@ -10,4 +10,6 @@ public interface PenjagaService {
     // latihan 3
     String deletePenjaga(PenjagaModel penjaga);
     PenjagaModel getPenjagaByNoPenjaga(Long noPenjaga);
+    // challenge
+    PenjagaModel getPenjagaByNamaPenjaga(String namaPenjaga);
 }
