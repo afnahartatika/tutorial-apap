@@ -49,10 +49,8 @@ public class BioskopController {
             BindingResult bindingResult,
             Model model
     ) {
-        System.out.println("AAA");
-        System.out.println(filmService.getListFilm());
-        List<FilmModel> listFilmModel = filmService.getListFilm();
-        System.out.println("BBB");
+        List<FilmModel> listFilm = filmService.getListFilm();
+
         if (bioskop.getListFilm() == null) {
             bioskop.setListFilm(new ArrayList<FilmModel>());
         }
@@ -60,7 +58,7 @@ public class BioskopController {
         List<FilmModel> newListFilm = bioskop.getListFilm();
         newListFilm.add(new FilmModel());
 
-        model.addAttribute("listFilm", listFilmModel);
+        model.addAttribute("listFilm", listFilm);
         model.addAttribute("bioskop", bioskop);
         return "form-add-bioskop";
     }
@@ -73,11 +71,11 @@ public class BioskopController {
             final HttpServletRequest request,
             Model model
     ) {
-        List <FilmModel> listFilmModel = filmService.getListFilm();
+        List <FilmModel> listFilm = filmService.getListFilm();
         final Integer rowId = Integer.valueOf(request.getParameter("deleteRow"));
         bioskop.getListFilm().remove(rowId.intValue());
         model.addAttribute("bioskop", bioskop);
-        model.addAttribute("listFilm", listFilmModel);
+        model.addAttribute("listFilm", listFilm);
         return "form-add-bioskop";
     }
 
