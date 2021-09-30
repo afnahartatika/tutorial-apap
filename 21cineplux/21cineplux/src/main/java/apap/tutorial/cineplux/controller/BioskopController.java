@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,6 +22,7 @@ public class BioskopController {
     @Qualifier("bioskopServiceImpl")
     @Autowired
     private BioskopService bioskopService;
+    @Autowired
     private FilmService filmService;
 
 
@@ -44,28 +46,38 @@ public class BioskopController {
     @PostMapping(value = "/bioskop/add", params = {"addRow"})
     public String addRowBioskopSubmit(
             @ModelAttribute BioskopModel bioskop,
+            BindingResult bindingResult,
             Model model
     ) {
-        if (bioskop.getListFilm() == null || bioskop.getListFilm().size() == 0) {
-            bioskop.setListFilm(new ArrayList<>());
+        System.out.println("AAA");
+        System.out.println(filmService.getListFilm());
+        List<FilmModel> listFilmModel = filmService.getListFilm();
+        System.out.println("BBB");
+        if (bioskop.getListFilm() == null) {
+            bioskop.setListFilm(new ArrayList<FilmModel>());
         }
 
-        bioskop.getListFilm().add(new FilmModel());
-        model.addAttribute("listFilm", filmService.getListFilm());
+        List<FilmModel> newListFilm = bioskop.getListFilm();
+        newListFilm.add(new FilmModel());
+
+        model.addAttribute("listFilm", listFilmModel);
         model.addAttribute("bioskop", bioskop);
         return "form-add-bioskop";
     }
 
     // latihan 3 - tutorial 4 - deleteRow Film
-    @PostMapping(value = "/bioskop/add", params = ("deleteRow"))
+    @RequestMapping(value = "/bioskop/add", method = RequestMethod.POST, params = {"deleteRow"})
     public String deleteRowBioskopSubmit(
             @ModelAttribute BioskopModel bioskop,
+            final BindingResult bindingResult,
             final HttpServletRequest request,
             Model model
     ) {
-        final Integer idRow = Integer.valueOf(request.getParameter("deleteRow"));
-        bioskop.getListFilm().remove(idRow.intValue());
+        List <FilmModel> listFilmModel = filmService.getListFilm();
+        final Integer rowId = Integer.valueOf(request.getParameter("deleteRow"));
+        bioskop.getListFilm().remove(rowId.intValue());
         model.addAttribute("bioskop", bioskop);
+        model.addAttribute("listFilm", listFilmModel);
         return "form-add-bioskop";
     }
 
