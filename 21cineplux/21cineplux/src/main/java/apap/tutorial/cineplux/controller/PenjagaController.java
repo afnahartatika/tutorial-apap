@@ -82,15 +82,30 @@ public class PenjagaController {
     ) {
         PenjagaModel penjaga = penjagaService.getPenjagaByNoPenjaga(noPenjaga);
         model.addAttribute("penjaga", penjaga);
-        String action = penjagaService.deletePenjaga(penjaga);
+        int action = penjagaService.deletePenjaga(penjaga);
 
-        if (action.equals("time-failed")) {
+        if (action == 0) {
             return "delete-penjaga-error-message";
-        } else if (action.equals("delete-success")) {
+        } else if (action == 1) {
             return "delete-penjaga-success-message";
         } else {
             return "delete-penjaga-error-message";
         }
     }
 
+    // form handler
+    @PostMapping("/penjaga/delete")
+    public String deletePenjagaSubmit(
+            @ModelAttribute BioskopModel bioskop,
+            Model model
+    ){
+        model.addAttribute("noBioskop", bioskop.getNoBioskop());
+        int res = 1;
+        for (PenjagaModel penjaga:
+            bioskop.getListPenjaga()) {
+            res = penjagaService.deletePenjaga(penjaga);
+        } if (res == 1) {
+            return "delete-penjaga-success-message";
+        } return "delete-penjaga-error-message";
+    }
 }

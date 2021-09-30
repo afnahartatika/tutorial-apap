@@ -17,7 +17,6 @@ import java.util.List;
 @Getter
 @Entity
 @Table(name = "film")
-
 public class FilmModel implements Serializable {
 
     @Id
@@ -30,10 +29,15 @@ public class FilmModel implements Serializable {
     private String namaFilm;
 
     @NotNull
+    @Size(max = 50)
+    @Column(nullable = false)
+    private String deskripsiFilm;
+
+    @NotNull
     @Column(nullable = false)
     private Boolean isDisplaying;
 
-    // Relasi dengan BioskopModel
+    //Relasi dengan BioskopModel
     @ManyToMany(mappedBy = "listFilm")
     List<BioskopModel> listBioskop;
 
