@@ -55,5 +55,11 @@
         </form>
     </div>
 </nav>
+<footer th:fragment="footer">
+    <snap>Total Bioskop:</snap>
+    <snap th:text="${#lists.size(listBioskop)}"></snap>
+    <br>
+    <snap>Made with 💖 by Afna</snap>
+</footer>
 </body>
 </html>
