@@ -3,6 +3,45 @@
 * **Afnadiati Hartatika** - *1906398931* - *C*
 
 ---
+## Tutorial 5
+### What I have learned today
+
+### Pertanyaan
+1. Apa itu Postman? Apa kegunaannya?
+   Postman merupakan sebuah aplikasi yang memiliki fungsi sebagai REST CLIENT
+   untuk melakukan uji coba REST API. Postman seringkali digunakan untuk menguji API
+   yang dibuat oleh para developer pembuat API.
+
+
+2. Jelaskan fungsi dari anotasi @JsonIgnoreProperties dan @JsonProperty.
+   - @JsonIgnoreProperties digunakan untuk mengabaikan properti-properti yang telah ditentukan
+      menjadi lebih mudah untuk dilihat dan dibaca.
+   - @JsonProperty digunakan untuk mengganti nama suatu bidang/properti.
+   
+
+
+3. Apa kegunaan atribut WebClient?
+   
+   WebClient berfungsi untuk merender halaman web yang diterima dari server.
+
+
+4. Apa itu ResponseEntity dan BindingResult? Apa kegunaannya?
+   - ResponseEntity adalah perwakilan dari seluruh response HTTP.
+   - BindingResult berperan sebagai argumen untuk memvalidasi suatu kesalahan pada objek.
+   
+
+### References:
+
+- https://antares.id/id/postman.html
+- https://ichi.pro/id/menggunakan-anotasi-jackson-dengan-jackson-jr-89096820144478
+- https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Ftugas2kampus.files.wordpress.com%2F2013%2F11%2Fkomplit-modul1.docx&wdOrigin=BROWSELINK
+- https://www.it-swarm-id.com/id/spring/saat-menggunakan-responseentity-t-dan-restcontroller-untuk-aplikasi-spring-restful/1049152939/#:~:text=ResponseEntity%20dimaksudkan%20untuk%20mewakili%20seluruh,menyatakan%20kode%20status%20respons%20HTTP.
+- https://answer-id.com/id/53849947
+
+
+
+
+---
 ## Tutorial 4
 ### What I have learned today
 
