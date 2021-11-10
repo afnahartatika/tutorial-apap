@@ -33,12 +33,14 @@ public class PenjagaServiceImpl implements PenjagaService {
 
     // latihan 3
     @Override
-    public String deletePenjaga(PenjagaModel penjaga) {
+    public int deletePenjaga(PenjagaModel penjaga) {
         if (penjaga.getBioskop().getWaktuBuka().isBefore(LocalTime.now()) && penjaga.getBioskop().getWaktuTutup().isAfter(LocalTime.now())) {
-            return "time-failed";
+//            return "time-failed";
+            return 0;
         } else {
             penjagaDB.delete(penjaga);
-            return "delete-success";
+//            return "delete-success";
+            return 1;
         }
     }
 

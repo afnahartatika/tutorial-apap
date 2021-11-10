@@ -8,6 +8,8 @@ public interface PenjagaService {
     // latihan 2
     String updatePenjaga(PenjagaModel penjaga);
     // latihan 3
-    String deletePenjaga(PenjagaModel penjaga);
+//    String deletePenjaga(PenjagaModel penjaga);
     PenjagaModel getPenjagaByNoPenjaga(Long noPenjaga);
+    // form handler
+    int deletePenjaga(PenjagaModel penjaga);
 }

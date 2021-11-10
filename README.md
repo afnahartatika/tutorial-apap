@@ -3,6 +3,41 @@
 * **Afnadiati Hartatika** - *1906398931* - *C*
 
 ---
+## Tutorial 4
+### What I have learned today
+
+### Pertanyaan
+1. Jelaskan perbedaan th:include dan th:replace!
+   - th:include adalah cara untuk memasukkan konten dari sebuah fragment tetapi tidak menyisipkan tag fragment itu sendiri.
+   - th:replace adalah cara untuk memasukkan konten dari sebuah fragment dengan mengganti tag saat ini dengan tag yang 
+     mendefinisikan fragment tersebut.
+   
+
+2. Jelaskan apa fungsi dari th:object!
+   
+   th:object berfungsi sebagai penentu objek yang akan di submit dalam sebuah data formulir yang dikirimkan. 
+   Setiap field data formulir dipetakan menggunakan atribut th:field="*{name}", name tersebut mendefinisikan properti 
+   objek yang sesuai dengan field.
+   
+
+3. Jelaskan perbedaan dari * dan $ pada saat penggunaan th:object! Kapan harus dipakai?
+   - tag dengan tanda * digunakan untuk mengisi field data dari formulir, biasanya diterapkan pada formulir edit dan input.
+   - tag dengan tanda $ menandakan bahwa tag tersebut merepresentasikan suatu objek atau variabel dari sebuah kumpulan data, 
+     biasanya digunakan untuk mengambil nilai yang akan ditampilkan pada template html.
+
+
+### What I did not understand
+- [ ] Kategorisasi penggunaan masing-masing tag Thymeleaf
+
+### References:
+
+- https://www.baeldung.com/spring-thymeleaf-fragments
+- https://www.baeldung.com/thymeleaf-in-spring-mvc
+- https://www.sinaungoding.com/yuk-belajar-web-menggunakan-spring-boot2/
+- https://anshulgnit.blogspot.com/2018/05/difference-between-thymeleaf-attribute-replace-insert-and-include.html
+
+
+---
 ## Tutorial 3
 ### What I have learned today
 
@@ -19,12 +54,14 @@
 
 2. Pada class BioskopDB, terdapat method findByNoBioskop, apakah kegunaan dari method
    tersebut?
+
    Method findByNoBioskop berfungsi sebagai interface yang akan menghubungkan method 
    implementasinya pada file BioskopServiceImpl dengan database. Method tersebut digunakan
    untuk mencari semua bioskop berdasarkan nomornya.
 
 
-3. Jelaskan perbedaan kegunaan dari anotasi @JoinTable dan @JoinColumn
+3. Jelaskan perbedaan kegunaan dari anotasi @JoinTable dan @JoinColumn.
+
    @JoinTable melakukan penyimpanan id dari kedua entity ke dalam tabel terpisah, 
    sedangkan @JoinColumn melakukan penyimpanan id entity lain di kolom baru dengan table yang sama.
 
@@ -38,7 +75,8 @@
    - @NotNull: field yang memiliki karakteristik @NotNull form tidak boleh dikosongkan, tetapi fieldnya bisa kosong. 
 
 
-5. Jelaskan kegunaan FetchType.LAZY, CascadeType.ALL, dan FetchType.EAGER
+5. Jelaskan kegunaan FetchType.LAZY, CascadeType.ALL, dan FetchType.EAGER.
+
    FetchType.LAZY digunakan saat persistence provider runtime harus bekerja dengan cepat, sedangkan FetchType.LAZY
    digunakan saat persistence yang bekerja tidak memerlukan kerja keras atau dapat diproses perlahan-lahan.
    Penggunaan CascadeType.ALL berarti bahwa setiap perubahan yang terjadi pada suatu entity akan mempengaruhi 
