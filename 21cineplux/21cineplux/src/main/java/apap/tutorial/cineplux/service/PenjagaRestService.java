@@ -10,6 +10,7 @@ public interface PenjagaRestService {
     PenjagaModel createPenjaga(PenjagaModel penjaga);
     List<PenjagaModel> retrieveListPenjaga();
     PenjagaModel getPenjagaByNoPenjaga(Long noPenjaga);
+    List<PenjagaModel> getPenjagaByJenisKelamin(Integer jenisKelamin);
     PenjagaModel updatePenjaga(Long noPenjaga, PenjagaModel penjagaUpdate);
     void deletePenjaga(Long noPenjaga);
     Mono<String> getStatus(Long noPenjaga);

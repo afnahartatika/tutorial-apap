@@ -94,4 +94,10 @@ public class PenjagaRestController {
         penjagaRestService.umur(noPenjaga);
         return penjagaRestService.getPenjagaByNoPenjaga(noPenjaga);
     }
+
+    // challenge demo
+    @GetMapping(value = "/list-penjaga")
+    private List<PenjagaModel> retrieveListPenjagaByJenisKelamin() {
+        return penjagaRestService.retrieveListPenjaga();
+    }
 }

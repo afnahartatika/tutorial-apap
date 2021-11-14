@@ -13,6 +13,7 @@ import reactor.core.publisher.Mono;
 
 import javax.transaction.Transactional;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -46,6 +47,15 @@ public class PenjagaRestServiceImpl implements PenjagaRestService {
             throw new NoSuchElementException();
         }
 
+    }
+
+    // challenge
+    @Override
+    public List<PenjagaModel> getPenjagaByJenisKelamin(Integer jenisKelamin, List<PenjagaModel> penjagaModelList) {
+        List<PenjagaModel> listPenjagaByJenisKelamin = new ArrayList<>();
+        for (PenjagaModel p : penjagaModelList) {
+            if (p.getJenisKelamin() == jenisKelamin) listPenjagaByJenisKelamin.add(p);
+        } return listPenjagaByJenisKelamin;
     }
 
     @Override
