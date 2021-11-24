@@ -3,6 +3,58 @@
 * **Afnadiati Hartatika** - *1906398931* - *C*
 
 ---
+## Tutorial 7
+### What I have learned today
+
+### Pertanyaan
+1. Jelaskan apa yang Anda lakukan di latihan dalam satu paragraf per-soal. Berikan screenshot
+   sebagai ilustrasi dari apa yang Anda jelaskan.
+   - Latihan 1: Mengaktifkan tombol delete.
+      
+      Pada latihan ini, saya membuat function baru bernama "handleDeleteItemFromCart" yang berfungsi untuk menghapus item yang dipilih dari keranjang. Di awal didefinisikan terlebih dahulu beberapa variabel yang akan digunakan. Terdapat variable "newItems" yang mendefinisikan kumpulan item yang telah dimasukkan ke keranjang dan disimpan ke dalam sebuah array, variable "newItem" mendefinisikan sebuah item yang dipilih, variable "targetInd" mendefinisikan kumpulan item yang sudah dipilih, dan balance mendeskripsikan jumlah balance saat itu. Saat item terpilih dan dimasukkan ke dalam keranjang, setiap item akan memiliki tombol delete yang diaktifkan dengan memberikan action pada "onItemClick" di MyCart. Setelah itu akan dijalankan function "handleDeleteItemFromCart". Item yang dipilih akan dicek pada array keranjang, jika item tersebut berada di keranjang maka statusnya di dalam keranjang akan diubah menjadi "false" yang menandakan bahwa item tersebut dihapus. Lalu, item tersebut dihapus dari array newItems dan dilakukan update pada Shop Item yang berarti item tersebut telah dijual kembali. Kemudian, status balance dikembalikan dengan cara menambahkan balance saat ini dengan price dari item yang dihapus.
+      ![img_6.png](img_6.png)
+      ![img_5.png](img_5.png)
+   - Latihan 2: Mengurangi total balance sesuai dengan harga item yang ada di keranjang.
+   
+      Pada latihan ini, saya mengimplementasikannya di function "handleAddItemToCart". Saat sebuah item dipilih untuk dimasukkan ke keranjang, akan menjalankan function add. Jika item berhasil ditambahkan ke keranjang, maka total balance saat ini dikurangkan dengan harga item yang sedang ditambah tersebut. Maka nilai balance akan terupdate menjadi berkurang.
+      ![img_8.png](img_8.png) 
+  - Latihan 3
+
+      Pada latihan ini, saya mengimplementasikannya di function "handleAddItemToCart". Di function tersebut dibuat terlebih dahulu kondisi jika nilai balance lebih dari harga item yang ditambahkan, maka item tersebut dapat ditambahkan. Jika nilai balance tidak mencukupi, maka akan beralih ke kondisi else yang mengeksekusi "alert" dan memberikan notifikasi bahwa balance tidak mencukupi.
+      ![img_9.png](img_9.png)
+
+2. Menurut pemahaman kamu selama pengerjaan tutorial ini, apa perbedaan antara state dan
+   props?
+   - State merupakan data private dari sebuah component yang hanya tersedia untuk component tersebut dan tidak dapat diakses dari luar component itu. State biasanya digunakan untuk menangani data yang sifatnya dapat berubah-ubah. 
+   - Prop adalah singkatan dari Property, Prop digunakan untuk melakukan komunikasi data component dari parent ke child dari component tersebut. Prop bersifat read only.
+   - Perbedaan dari keduanya yaitu state hanya dapat dimiliki oleh class component, sedangkan functional component dapat mengandung prop saja.
+
+
+3. Menurut kamu, apakah sebaiknya kita menggunakan component (e.g. List, Item) dalam
+   React? sebutkan alasannya.
+   
+   Ya, sebaiknya menggunakan component karena aplikasi react tersusun dari beberapa component.
+   Component digunakan untuk memperintahkan react hal-hal yang harus ditampilkan ke real DOM dalam bentuk HTML.
+
+
+4. Apa perbedaan class component dan functional component?
+   - Class component dapat menggunakan state dan props, seringkali disebut statefull.
+   - Functional component biasa digunakan untuk membangun tampilan UI, hanya dapat menggunakan props sehingga biasa
+      disebut stateless component. Functional component memiliki syntax yang lebih simple.
+
+
+5. Dalam react, apakah perbedaan component dan element?
+   - Component merupakan bagian-bagian kecil dari aplikasi. Component yang terkandung di dalam component yaitu User Interface dan Data.
+   - Element merupakan blok bangunan terkecil di aplikasi.
+   - Kumpulan element dapat membentuk suatu componen atau dengan kata lain component terdiri dari beberapa element.
+
+### References:
+
+- https://medium.com/coderupa/react-prop-state-apa-bedanya-7ee61df8257f
+- https://www.petanikode.com/reactjs-komponen/
+- https://hobikoding.github.io/component-react/
+
+---
 ## Tutorial 6
 ### What I have learned today
 
