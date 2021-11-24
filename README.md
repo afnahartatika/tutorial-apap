@@ -3,6 +3,40 @@
 * **Afnadiati Hartatika** - *1906398931* - *C*
 
 ---
+## Tutorial 6
+### What I have learned today
+
+### Pertanyaan
+1. Jelaskan secara singkat perbedaan Otentikasi dan Otorisasi! Di bagian mana (dalam kode yang telah anda buat) konsep tersebut diimplementasi?
+   Otentikasi merupakan proses identifikasi data pengguna, sedangkan otorisasi proses penentuan apakah seorang user dapat mengakses suatu resources atau tidak.
+   - Otentikasi -> proses login/logout.
+   - Otorisasi -> saat hanya seorang pengguna dengan role manager yang dapat mengubah, menambahkan dan menghapus penjaga.
+
+
+2. Apa itu BCryptPasswordEncoder? Jelaskan secara singkat cara kerja dan tujuannya.
+   Bcrypt berfungsi untuk menghashing password user menjadi potongan kode yang tidak dapat dibaca oleh pengguna lain.
+   Tujuannya untuk melindungi keamanan akun pengguna, agar password tidak mudah dicuri.
+
+
+3. Apakah penyimpanan password sebaiknya menggunakan encryption atau hashing? Mengapa
+   demikian?
+   Sebaiknya menggunakan keduanya, hashing membantu untuk mengamankan password dari database owner. Sedangkan, encryption dapat melindungi data dengan lebih aman.
+   
+
+4. Jelaskan secara singkat apa itu UUID beserta penggunaannya!
+   UUID adalah alat pengidentifikasian unique identifier yang dibuat dengan menggunakan timestamp dan alamat MAC komputer si pembuat.
+   
+
+5. Apa kegunaan class UserDetailsServiceImpl.java? Mengapa harus ada class tersebut?
+   Berguna untuk membangun otentikasi user.
+
+### References:
+
+- https://www.akakom.ac.id/site/news/124/autentikasi-dan-otorisasi-user-menggunakan-framework-yii
+- https://www.uuidgenerator.net
+
+
+---
 ## Tutorial 5
 ### What I have learned today
 
