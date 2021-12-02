@@ -15,7 +15,7 @@ class ItemList extends Component {
         super(props);
         this.state = {
             items: [],
-            carts: [],
+            cart: [],
             isLoading: false,
             isCreate: false,
             isEdit: false,
@@ -50,6 +50,16 @@ class ItemList extends Component {
         try {
             const {data} = await APIConfig.get(`/item?title=${this.state.search}`);
             this.setState({items: data.result});
+        } catch (error) {
+            alert("Oops terjadi masalah pada server");
+            console.log(error);
+        }
+    }
+
+    async loadDataCart() {
+        try {
+            const {data} = await APIConfig.get("/cart");
+            this.setState({cart: data.result});
         } catch (error) {
             alert("Oops terjadi masalah pada server");
             console.log(error);
@@ -114,7 +124,6 @@ class ItemList extends Component {
         console.log("test");
         await APIConfig.delete(`/item/${item.id}`);
         this.loadData();
-        // this.handleCancel(event);
     }
 
     handleClickLoading() {
@@ -164,28 +173,57 @@ class ItemList extends Component {
 
     // latihan no 3
     async handleAddItemToCart(event) {
-        event.preventDefault();
+        const qty = document.getElementById("qty" + event.id).value; // input form quantity item
+        const cart = [...this.state.cart];
         try {
-            const data = {
-                id: this.state.id,
-                quantity: this.state.quantity
-            };
-            await APIConfig.post("/cart", data);
-            this.setState({
-                "quantity": this.state.cartQty + data.quantity,
-                "item": {
-                    "id": 0,
-                    "title": "",
-                    "price": 0,
-                    "description": "",
-                    "category": "",
-                    "quantity": this.state.quantity - data.quantity,
+
+            // item pertama di cart
+            if (cart.length === 0) {
+                if (qty <= event.quantity) {
+                    const data = {
+                        idItem: event.id,
+                        quantity: qty
+                    };
+                    await APIConfig.post("/cart", this.state.data);
+                    this.loadData();
+                    this.loadDataCart();
                 }
-            })
-            this.loadData();
+            }
+
+            else {
+                for(let i = 0; i < cart.length; i++) {
+                    const j = cart[i];
+                    if (j.item.id === event.id) {
+                        if (qty <= event.quantity - j.quantity) {
+                            const data = {
+                                idItem: event.id,
+                                quantity: qty
+                            };
+
+                            await APIConfig.post("/cart", data);
+                            this.loadData();
+                            this.loadDataCart();
+                        }
+
+                        else {
+                            alert("Stok tidak memenuhi!");
+                        }
+                    }
+
+                    else {
+                        if (qty <= event.quantity) {
+                            const data = {
+                                idItem: event.id,
+                                quantity: qty
+                            };
+
+                            await APIConfig.post("/cart", data);
+                        }
+                    } alert("Stok tidak memenuhi!");
+                }
+            }
         } catch (error) {
-            alert("Stok tidak memenuhi!");
-            console.log(error);
+            alert("Error!");
         }
     }
 
@@ -200,11 +238,9 @@ class ItemList extends Component {
                 {this.state.cartHidden ?
                 <div style={{ position: "fixed", top: 25, right: 25 }}>
                     <Fab variant="extended" onClick={this.handleToggle}>
-
-                            <Badge color="secondary" badgeContent={this.state.cartQty}>
+                            <Badge color="secondary" badgeContent={this.state.cart.length}>
                                 <ShoppingCartIcon />
                             </Badge>
-
                     </Fab>
                 </div>
                     : <button className="btn btn-primary" onClick={this.handleToggle}>← BACK</button>}
@@ -215,7 +251,7 @@ class ItemList extends Component {
                                 <button className="btn btn-primary" onClick={this.handleToggle}>CHECKOUT</button>
                                 <h1 className={classes.title}>Cart Items</h1>
                                 <div>
-                                    {this.state.carts.map((item) => (
+                                    {this.state.cart.map((item) => (
                                         <Item
                                             key={item.id}
                                             id={item.id}
@@ -224,9 +260,6 @@ class ItemList extends Component {
                                             description={item.description}
                                             category={item.category}
                                             quantity={item.quantity}
-                                            handleEdit={() => this.handleEditItem(item)}
-                                            handleDelete={() => this.handleDeleteItem(item)}
-                                            handleAddCart={() => this.handleAddItemToCart(item)}
                                         />
                                     ))}
                                 </div>

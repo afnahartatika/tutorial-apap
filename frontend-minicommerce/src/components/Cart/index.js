@@ -2,7 +2,7 @@ import React from "react";
 import Button from "../button";
 import classes from "./styles.module.css";
 const Cart = (props) => {
-    const { id, idItem, quantity, item} = props;
+    const { id, item} = props;
     return (
         <div className={classes.cart}>
             <h3>{`ID Cart: ${id}`}</h3>
@@ -14,4 +14,4 @@ const Cart = (props) => {
         </div>
     );
 };
-export default Item;
+export default Cart;

@@ -18,7 +18,7 @@ const Item = (props) => {
                 Delete
             </Button>
             <form>
-                <input className="form-control" type="text"/>
+                <input className="form-control" type="number" id={`qty${id}`} name="qty"/>
                 <Button action={handleAddCart}>Add to Cart</Button>
             </form>
         </div>
