@@ -1,6 +1,56 @@
 # Tutorial APAP
 ## Authors
 * **Afnadiati Hartatika** - *1906398931* - *C*
+---
+## Tutorial 8
+### What I have learned today
+
+### Pertanyaan
+1. Ceritakan langkah - langkah yang kalian lakukan untuk solve LATIHAN no.1, dan mengapa kalian
+   melakukan langkah - langkah tersebut?
+   Pada latihan no. 1, saya menambahkan metode configure() lain yang memiliki parameter WebSecurity di file WebSecurityConfig pada backend app sebagai berikut:
+   
+   `@Override
+   public void configure(WebSecurity web) throws Exception {
+       web.ignoring().antMatchers("/api/**");
+   }`
+   
+   Method tersebut ditambahkan untuk membuat form Add Item yang telah disubmit dapat ter-reset seperti default form sebelumnya.
+
+
+3. Jelaskan fungsi dari async dan await!
+   Async dan await adalah sebuah syntax khusus yang digunakan untuk berkolaborasi dengan Promise agar program dapat lebih mudah untuk digunakan. Async adalah fungsi yang dapat mengembalikan sebuah Promise. Sedangkan, Await adalah fungsi yang hanya dapat berjalan di dalam sebuah Async, jika tidak ada Async maka Await tidak dapat digunakan. Await digunakan agar dapat menunda jalannya Async sampai proses dari Await selesai dan berhasil dieksekusi.
+
+
+3. Masukkan jawaban dari Screenshot yang diperintahkan di halaman 9 pada Component Lifecycle
+   pada pertanyaan ini.
+   - ![img_10.png](img_10.png)
+   - ![img_11.png](img_11.png)
+   - ![img_12.png](img_12.png)
+   - ![img_13.png](img_13.png)
+   - ![img_14.png](img_14.png)
+   - ![img_15.png](img_15.png)
+   - ![img_16.png](img_16.png)
+   - ![img_17.png](img_17.png)
+   - ![img_18.png](img_18.png)
+   - ![img_19.png](img_19.png)
+
+
+4. Jelaskan fungsi dari componentDidMount, shouldComponentUpdate,
+   componentDidUpdate, componentWillReceiveProps, componentWillUnmount.
+   Notes : Penjelasan harus mencantumkan “kapan fungsi dipanggil” dan “use case apa saja
+   yang biasanya menggunakan lifecycle method tersebut”.
+   - componentDidMount digunakan untuk memuat data dari titik akhir jarak jauh untuk membuat instance network request, dipanggil saat setelah komponen dipasang.
+   - shouldComponentUpdate digunakan untuk memberi tahu ke React bahwa output komponen tidak terpengaruh dengan perubahan state atau property saat itu. Ia akan merender ulang setiap perubahan status yang terjadi secara default. shouldComponentUpdate dipanggil sebelum melakukan render ketika terdapat new props atau state yang sedang diterima.
+   - componentDidUpdate dipanggil saat terjadi pebaruan untuk melakukan render di awal. Digunakan untuk mengoperasikan DOM ketika komponen telah diperbarui.
+   - componentWillReceiveProps dipanggil sebelum komponen yang dipasang meneripa props yang baru. Method ini akan dipanggil walaupun props tidak berubah.
+   - componentWillUnmount dipanggil saat komponen dihapus dari DOM. Perlu dilakukan pembersihan saat method ini dipanggil, seperti canceling network request, dsb.
+
+
+### References:
+
+- https://www.kawankoding.id/javascript-async-await/
+- https://reactjs.org/docs/react-component.html
 
 ---
 ## Tutorial 7
